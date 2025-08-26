@@ -1,0 +1,14 @@
+<div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@consulta.add.headline">Add Consulta</h1>
+    <div>
+        <a routerLink="/consultas" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-4 rounded px-5 py-2" i18n="@@consulta.add.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="addForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="addForm" field="token" i18n-label="@@consulta.token.label" label="Token" />
+    <app-input-row [group]="addForm" field="origen" i18n-label="@@consulta.origen.label" label="Origen" />
+    <app-input-row [group]="addForm" field="timestamp" rowType="datetimepicker" i18n-label="@@consulta.timestamp.label" label="Timestamp" />
+    <app-input-row [group]="addForm" field="mensaje" rowType="textarea" i18n-label="@@consulta.mensaje.label" label="Mensaje" />
+    <app-input-row [group]="addForm" field="respuesta" rowType="textarea" i18n-label="@@consulta.respuesta.label" label="Respuesta" />
+    <input type="submit" i18n-value="@@consulta.add.headline" value="Add Consulta" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2 cursor-pointer mt-6" />
+</form>

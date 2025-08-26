@@ -1,0 +1,15 @@
+<div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@consulta.edit.headline">Edit Consulta</h1>
+    <div>
+        <a routerLink="/consultas" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-4 rounded px-5 py-2" i18n="@@consulta.edit.back">Back to list</a>
+    </div>
+</div>
+<form [formGroup]="editForm" (ngSubmit)="handleSubmit()">
+    <app-input-row [group]="editForm" field="id" rowType="number" i18n-label="@@consulta.id.label" label="Id" />
+    <app-input-row [group]="editForm" field="token" i18n-label="@@consulta.token.label" label="Token" />
+    <app-input-row [group]="editForm" field="origen" i18n-label="@@consulta.origen.label" label="Origen" />
+    <app-input-row [group]="editForm" field="timestamp" rowType="datetimepicker" i18n-label="@@consulta.timestamp.label" label="Timestamp" />
+    <app-input-row [group]="editForm" field="mensaje" rowType="textarea" i18n-label="@@consulta.mensaje.label" label="Mensaje" />
+    <app-input-row [group]="editForm" field="respuesta" rowType="textarea" i18n-label="@@consulta.respuesta.label" label="Respuesta" />
+    <input type="submit" i18n-value="@@consulta.edit.headline" value="Edit Consulta" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2 cursor-pointer mt-6" />
+</form>

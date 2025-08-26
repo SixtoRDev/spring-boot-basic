@@ -1,0 +1,39 @@
+<div class="flex flex-wrap mb-6">
+    <h1 class="grow text-3xl md:text-4xl font-medium mb-2" i18n="@@consulta.list.headline">Consultas</h1>
+    <div>
+        <a routerLink="/consultas/add" class="inline-block text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-300  focus:ring-4 rounded px-5 py-2" i18n="@@consulta.list.createNew">Create new Consulta</a>
+    </div>
+</div>
+@if (!consultas || consultas.length === 0) {
+<div i18n="@@consulta.list.empty">No Consultas could be found.</div>
+} @else {
+<div class="overflow-x-auto">
+    <table class="w-full">
+        <thead>
+            <tr>
+                <th scope="col" class="text-left p-2" i18n="@@consulta.id.label">Id</th>
+                <th scope="col" class="text-left p-2" i18n="@@consulta.token.label">Token</th>
+                <th scope="col" class="text-left p-2" i18n="@@consulta.origen.label">Origen</th>
+                <th scope="col" class="text-left p-2" i18n="@@consulta.timestamp.label">Timestamp</th>
+                <th><!-- --></th>
+            </tr>
+        </thead>
+        <tbody class="border-t-2 border-black">
+            @for (consulta of consultas; track consulta.id) {
+            <tr class="odd:bg-gray-100">
+                <td class="p-2">{{ consulta.id }}</td>
+                <td class="p-2">{{ consulta.token }}</td>
+                <td class="p-2">{{ consulta.origen }}</td>
+                <td class="p-2">{{ consulta.timestamp }}</td>
+                <td class="p-2">
+                    <div class="float-right whitespace-nowrap">
+                        <a [routerLink]="['/consultas/edit', consulta.id]" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm" i18n="@@consulta.list.edit">Edit</a>
+                        <button type="button" (click)="confirmDelete(consulta.id!)" class="inline-block text-white bg-gray-500 hover:bg-gray-600 focus:ring-gray-200 focus:ring-3 rounded px-2.5 py-1.5 text-sm cursor-pointer" i18n="@@consulta.list.delete">Delete</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
